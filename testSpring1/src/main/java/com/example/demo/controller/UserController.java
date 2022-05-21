@@ -36,8 +36,6 @@ public class UserController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@ModelAttribute BookSearchRequest bookSearchRequest, Model model) {
-    	System.out.println(bookSearchRequest.user_id);
-    	System.out.println(bookSearchRequest.book_id);
     	userService.delete(bookSearchRequest);
         return "delete_confirm";
     }
