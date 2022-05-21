@@ -1,21 +1,33 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>ユーザー情報検索</title>
+<title>本の編集</title>
 <meta charset="utf-8" />
 </head>
 <body>
-    <h1>ユーザー情報検索</h1>
-    <form th:action="@{userplanbooklist}" th:object="${userSearchRequest}"
-        th:method="post">
-        <div>
-            Name：<input type="text" name="id" size="40" />
-        </div>
-        <br />
-        <div>
-            <input type="submit" value="検索" style="width: 100px;" />
-        </div>
-        <br />
-    </form>
+    <h1>本の編集</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>USER ID</th>
+                <th>BOOK ID</th>
+                <th>BOOK NAME</th>
+                <th>編集</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:object="${editBook}">
+                <td class="center" th:text="*{user_id}"></td>
+                <td th:text="*{book_id}"></td>
+                <td th:text="*{book_name}"></td>
+                <form th:action="@{/edit_confirm}" th:object="${bookSearchRequest}" th:method="post">
+			            ID：<input type="text" name="book_name" />
+			            <input type="hidden" name="user_id "th:value="*{user_id}" />
+			            <input type="hidden" name="book_id" th:value="*{book_id}" />
+			            <input type="submit" value="編集" />
+			    </form>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

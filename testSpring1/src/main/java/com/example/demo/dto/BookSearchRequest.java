@@ -11,6 +11,6 @@ public class BookSearchRequest implements Serializable {
 
   public Long book_id;
 
-  public Long book_name;
+  public String book_name;
 
 }

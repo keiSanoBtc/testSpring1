@@ -20,4 +20,6 @@ public interface UserMapper {
 
     void delete(BookSearchRequest book);
 
+    Book select(BookSearchRequest book);
+
 }

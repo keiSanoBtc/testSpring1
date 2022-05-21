@@ -34,6 +34,20 @@ public class UserController {
         return "user";
     }
 
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String edit(@ModelAttribute BookSearchRequest bookSearchRequest, Model model) {
+    	Book book = userService.select(bookSearchRequest);
+    	model.addAttribute("editBook", book);
+        return "edit";
+    }
+
+    @RequestMapping(value = "/edit_confirm", method = RequestMethod.POST)
+    public String edit_confirm(@ModelAttribute BookSearchRequest bookSearchRequest, Model model) {
+    	System.out.println(bookSearchRequest.book_name);
+    	System.out.println(bookSearchRequest.book_id);
+        return "edit_confirm";
+    }
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@ModelAttribute BookSearchRequest bookSearchRequest, Model model) {
     	userService.delete(bookSearchRequest);
