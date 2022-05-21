@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>みたい本リスト</title>
+<meta charset="utf-8" />
+</head>
+<body>
+    <h1>見たい本一覧</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>USER ID</th>
+                <th>BOOK ID</th>
+                <th>BOOK NAME</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${userPlanBookList}">
+                <td class="center" th:text="${book.user_id}"></td>
+                <td th:text="${book.book_id}"></td>
+                <td th:text="*{book.book_name}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
