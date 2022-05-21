@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.dto.BookSearchRequest;
 import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.entity.Book;
 
@@ -14,5 +15,9 @@ import com.example.demo.entity.Book;
 public interface UserMapper {
 
     List<Book> userPlanBookList(UserSearchRequest user);
+
+    List<Book> userPostBookList(UserSearchRequest user);
+
+    void delete(BookSearchRequest book);
 
 }

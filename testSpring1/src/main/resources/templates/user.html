@@ -12,10 +12,37 @@
                 <th>USER ID</th>
                 <th>BOOK ID</th>
                 <th>BOOK NAME</th>
+                <th>削除</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="book : ${userPlanBookList}">
+                <td class="center" th:text="${book.user_id}"></td>
+                <td th:text="${book.book_id}"></td>
+                <td th:text="*{book.book_name}"></td>
+                <td>
+                	<form th:action="@{/delete}" th:object="${bookSearchRequest}" th:method="post">
+				        <div>
+				        	<input type="hidden" name="user_id" th:value="${book.user_id}" />
+				        	<input type="hidden" name="book_id" th:value="${book.book_id}" />
+				            <input type="submit" value="削除"  />
+				        </div>
+				    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>見た本一覧</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>USER ID</th>
+                <th>BOOK ID</th>
+                <th>BOOK NAME</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${userPostBookList}">
                 <td class="center" th:text="${book.user_id}"></td>
                 <td th:text="${book.book_id}"></td>
                 <td th:text="*{book.book_name}"></td>
