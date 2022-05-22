@@ -29,6 +29,10 @@ public class UserService {
        return userMapper.select(bookSearchRequest);
     }
 
+    public void edit(BookSearchRequest bookSearchRequest) {
+        userMapper.edit(bookSearchRequest);
+     }
+
     public void delete(BookSearchRequest bookSearchRequest) {
         userMapper.delete(bookSearchRequest);
     }

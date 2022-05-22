@@ -43,8 +43,7 @@ public class UserController {
 
     @RequestMapping(value = "/edit_confirm", method = RequestMethod.POST)
     public String edit_confirm(@ModelAttribute BookSearchRequest bookSearchRequest, Model model) {
-    	System.out.println(bookSearchRequest.book_name);
-    	System.out.println(bookSearchRequest.book_id);
+    	userService.edit(bookSearchRequest);
         return "edit_confirm";
     }
 
