@@ -18,4 +18,7 @@
     <delete id="delete">
     	DELETE FROM BOOK_PLAN_TABLE2 WHERE USER_ID = #{user_id} AND BOOK_RECORD_NO = #{book_id};
     </delete>
+    <update id="postbook">
+    	UPDATE BOOK_PLAN_TABLE2 SET READ_FLAG = 1 WHERE USER_ID = #{user_id} AND BOOK_RECORD_NO = #{book_id};
+    </update>
 </mapper>

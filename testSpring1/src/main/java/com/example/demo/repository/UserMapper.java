@@ -24,4 +24,6 @@ public interface UserMapper {
 
     Book select(BookSearchRequest book);
 
+    void postbook(BookSearchRequest book);
+
 }

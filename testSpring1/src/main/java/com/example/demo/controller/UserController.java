@@ -53,4 +53,10 @@ public class UserController {
         return "delete_confirm";
     }
 
+    @RequestMapping(value = "/postbook", method = RequestMethod.POST)
+    public String postbook(@ModelAttribute BookSearchRequest bookSearchRequest, Model model) {
+    	userService.postbook(bookSearchRequest);
+        return "postbook_confirm";
+    }
+
 }

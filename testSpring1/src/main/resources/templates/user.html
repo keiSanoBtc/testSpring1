@@ -14,6 +14,7 @@
                 <th>BOOK NAME</th>
                 <th>編集</th>
                 <th>削除</th>
+                <th>既読</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,15 @@
 				        	<input type="hidden" name="user_id" th:value="${book.user_id}" />
 				        	<input type="hidden" name="book_id" th:value="${book.book_id}" />
 				            <input type="submit" value="削除"  />
+				        </div>
+				    </form>
+                </td>
+                <td>
+                	<form th:action="@{/postbook}" th:object="${bookSearchRequest}" th:method="post">
+				        <div>
+				        	<input type="hidden" name="user_id" th:value="${book.user_id}" />
+				        	<input type="hidden" name="book_id" th:value="${book.book_id}" />
+				            <input type="submit" value="既読"  />
 				        </div>
 				    </form>
                 </td>

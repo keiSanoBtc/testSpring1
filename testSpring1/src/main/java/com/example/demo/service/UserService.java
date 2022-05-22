@@ -37,4 +37,8 @@ public class UserService {
         userMapper.delete(bookSearchRequest);
     }
 
+    public void postbook(BookSearchRequest bookSearchRequest) {
+        userMapper.postbook(bookSearchRequest);
+    }
+
 }
