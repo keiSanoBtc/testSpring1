@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dto.BookSearchRequest;
 import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.entity.Book;
+import com.example.demo.entity.User;
 import com.example.demo.repository.UserMapper;;
 
 @Service
@@ -16,6 +17,10 @@ public class UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    public List<User> userList() {
+        return userMapper.userList();
+    }
 
     public List<Book> userPlanBookList(UserSearchRequest userSearchRequest) {
         return userMapper.userPlanBookList(userSearchRequest);

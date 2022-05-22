@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.demo.dto.BookSearchRequest;
 import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.entity.Book;
+import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 
 @Controller
@@ -19,6 +20,18 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home() {
+        return "home";
+    }
+
+	@RequestMapping(value = "/userlist", method = RequestMethod.GET)
+    public String userlist(Model model) {
+		List<User> userList = userService.userList();
+    	model.addAttribute("userList", userList);
+        return "userlist";
+    }
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
